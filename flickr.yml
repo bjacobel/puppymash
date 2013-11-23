@@ -1,0 +1,4 @@
+--- !map:HashWithIndifferentAccess
+key: "8469308b9438d14659c974a832b59e72"
+secret: "fe7a5759f29d9d9e"
+token_cache: "token_cache.yml"

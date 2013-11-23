@@ -37,6 +37,9 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    flickr_fu (0.3.2)
+      mime-types
+      xml-magic
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -103,12 +106,14 @@ GEM
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xml-magic (0.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  flickr_fu
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.1)
