@@ -1,9 +1,9 @@
-<h1>Listing puppies</h1>
-
+<h1>Puppymash</h1>
+<h3>Current standings:</h3>
 <table>
   <thead>
     <tr>
-      <th>Path</th>
+      <th>Puppy Photo</th>
       <th>Rating</th>
       <th></th>
       <th></th>
@@ -14,16 +14,13 @@
   <tbody>
     <% @puppies.each do |puppy| %>
       <tr>
-        <td><%= puppy.path %></td>
+        <td><img height="150px" width="150px" src="<%= puppy.path %>"/></td>
         <td><%= puppy.rating %></td>
-        <td><%= link_to 'Show', puppy %></td>
-        <td><%= link_to 'Edit', edit_puppy_path(puppy) %></td>
-        <td><%= link_to 'Destroy', puppy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<%= link_to 'Seen these all before? Get more puppies!', more_path %>
 
-<%= link_to 'New Puppy', new_puppy_path %>
+<br>

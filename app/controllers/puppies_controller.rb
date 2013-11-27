@@ -19,22 +19,21 @@ class PuppiesController < ApplicationController
 
   # GET /puppies/1/edit
   def edit
+
+  end
+
+  def more
+
   end
 
   # POST /puppies
   # POST /puppies.json
   def create
-    @puppy = Puppy.new(puppy_params)
-
-    respond_to do |format|
-      if @puppy.save
-        format.html { redirect_to @puppy, notice: 'Puppy was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @puppy }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @puppy.errors, status: :unprocessable_entity }
-      end
+    (0..params[:num].to_i-1).each do
+      @puppy = Puppy.create()
     end
+
+    redirect_to('/')
   end
 
   # PATCH/PUT /puppies/1

@@ -1,0 +1,17 @@
+<h1>Get more puppies</h1>
+
+<p>How many puppies would you like to add to the database?</p>
+
+<%= form_tag("/create", method: "post") do %>
+  <div class="input">
+    <%= label_tag(:num, "This many:") %>
+    <%= text_field_tag(:num) %>
+  </div>
+
+  <div class="actions">
+   <%= submit_tag("Go get 'em") %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', puppies_path %>
