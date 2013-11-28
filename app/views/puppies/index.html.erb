@@ -1,26 +1,24 @@
-<h1>Puppymash</h1>
-<h3>Current standings:</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Puppy Photo</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h3 class="header">Left or right?</h3>
 
-  <tbody>
-    <% @puppies.each do |puppy| %>
-      <tr>
-        <td><img height="150px" width="150px" src="<%= puppy.path %>"/></td>
-        <td><%= puppy.rating %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="pics">
+    <div class="pic-container left" onclick="document.forms['choose0'].submit()">
+        <img class="pic" src="<%= @puppies[0].path %>"/>
+    </div>
 
-<%= link_to 'Seen these all before? Get more puppies!', more_path %>
+    <div class="pic-container right" onclick="document.forms['choose1'].submit()">
+        <img class="pic" src="<%= @puppies[1].path %>"/>
+    </div>
+</div>
 
-<br>
+<form id="choose0" method="post" action="/score">
+    <input hidden name="chosen" value="<%=@puppies[0].id %>"/>
+    <input hidden name="notchosen" value="<%=@puppies[1].id %>"/>
+</form>
+
+<form id="choose1" method="post" action="/score">
+    <input hidden name="chosen" value="<%=@puppies[1].id %>"/>
+    <input hidden name="notchosen" value="<%=@puppies[0].id %>"/>
+</form>
+
+<%= link_to 'Seen these two before? Get more puppies!', more_path, {:class=>"more-link"} %>
+<%= link_to 'Or see the current rankings ->', standings_path, {:class=>"rankings-link"} %>

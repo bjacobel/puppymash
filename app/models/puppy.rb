@@ -1,6 +1,7 @@
 class Puppy < ActiveRecord::Base
 
 before_create :default_values
+
 def default_values
   self.rating = 0
   photo = get_photo()

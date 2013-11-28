@@ -1,0 +1,27 @@
+<h3>Current standings:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Puppy</th>
+      <th>Rating</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @puppies.each do |puppy| %>
+      <tr class="standing-row">
+        <td><img class="standing-pic" src="<%= puppy.path %>"/></td>
+        <td><p class="standing-number"><%= puppy.rating %></p></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Seen these all before? Get more puppies!', more_path %>
+<br/>
+<%= link_to 'Back', puppies_path %>
+
+<br>

@@ -9,6 +9,8 @@ Puppymash::Application.routes.draw do
 
   get '/more', to: 'puppies#more'
 
+  get '/standings', to: 'puppies#standings'
+
   post '/create', to: 'puppies#create'
 
   # Example of regular route:

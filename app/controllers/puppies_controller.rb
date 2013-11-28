@@ -4,6 +4,11 @@ class PuppiesController < ApplicationController
   # GET /puppies
   # GET /puppies.json
   def index
+    @puppies = Puppy.all.sample(2)
+  end
+
+  # GET /standings
+  def standings
     @puppies = Puppy.all
   end
 
@@ -17,13 +22,19 @@ class PuppiesController < ApplicationController
     @puppy = Puppy.new
   end
 
+  # POST /score
+  def score
+    @chosen = params[:chosen]
+    @notchosen = params[:notchosen]
+  end
+
   # GET /puppies/1/edit
   def edit
 
   end
 
   def more
-
+    # no need for anything here yet
   end
 
   # POST /puppies
