@@ -24,8 +24,18 @@ class PuppiesController < ApplicationController
 
   # POST /score
   def score
-    @chosen = params[:chosen]
-    @notchosen = params[:notchosen]
+    @chosen = Puppy.find_by_id(params[:chosen])
+    @notchosen = Puppy.find_by_id(params[:notchosen])
+
+    # implementation of Elo rating algorithm (http://en.wikipedia.org/wiki/Elo_rating_system#Theory)
+    @E_a = 1.0/(1.0 + 10.0 ** ((@notchosen.rating-@chosen.rating)/400.0))
+    @E_b = 1.0/(1.0 + 10.0 ** ((@chosen.rating-@notchosen.rating)/400.0))
+    @chosen.rating = @chosen.rating + 32.0 * (1 - @E_a)
+    @notchosen.rating = @notchosen.rating + 32.0 * (0 - @E_b)
+    @chosen.save
+    @notchosen.save
+
+    redirect_to('/')
   end
 
   # GET /puppies/1/edit

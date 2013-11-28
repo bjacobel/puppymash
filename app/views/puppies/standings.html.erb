@@ -2,17 +2,16 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Puppy</th>
       <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @puppies.each do |puppy| %>
       <tr class="standing-row">
+        <td><p class="standing-id"><%= puppy.id %></p></td>
         <td><img class="standing-pic" src="<%= puppy.path %>"/></td>
         <td><p class="standing-number"><%= puppy.rating %></p></td>
       </tr>

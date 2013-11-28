@@ -13,6 +13,8 @@ Puppymash::Application.routes.draw do
 
   post '/create', to: 'puppies#create'
 
+  post '/score', to: 'puppies#score' 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
