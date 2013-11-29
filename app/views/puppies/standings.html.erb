@@ -13,7 +13,7 @@
       <tr class="standing-row">
         <td><p class="standing-id"><%= puppy.id %></p></td>
         <td><img class="standing-pic" src="<%= puppy.path %>"/></td>
-        <td><p class="standing-number"><%= puppy.rating %></p></td>
+        <td><p class="standing-number"><%= number_with_precision(puppy.rating, :precision => 2) %></p></td>
       </tr>
     <% end %>
   </tbody>

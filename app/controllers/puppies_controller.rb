@@ -9,7 +9,7 @@ class PuppiesController < ApplicationController
 
   # GET /standings
   def standings
-    @puppies = Puppy.all
+    @puppies = Puppy.all.sort_by! {|a| -a.rating}
   end
 
   # GET /puppies/1
